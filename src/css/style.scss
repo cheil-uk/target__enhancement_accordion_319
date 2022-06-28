@@ -1,0 +1,1933 @@
+// ==========================================================================
+// Imports
+// ==========================================================================
+@import 'utils/variables';
+@import 'utils/mixins';
+@import 'components/banner';
+
+// ==========================================================================
+// Basic definitions
+// ==========================================================================
+
+.cheil-static * {
+ font-family: "SamsungOne", sans-serif
+}
+
+.cheil-static *,
+.cheil-static :after,
+.cheil-static :before {
+ box-sizing: border-box;
+ -moz-box-sizing: border-box;
+ -webkit-box-sizing: border-box
+}
+
+#cheil-id-root__financeModule {
+ max-width: 1440px;
+ margin: 160px auto
+}
+
+@media screen and (max-width: 768px) {
+ #cheil-id-root__financeModule {
+  margin: 50px auto 150px
+ }
+}
+
+a {
+ color: #2189ff
+}
+
+html {
+ -webkit-text-size-adjust: none
+}
+
+body {
+ margin: 0;
+ font-family: "SamsungOne", sans-serif;
+ -webkit-font-smoothing: antialiased;
+ -moz-osx-font-smoothing: grayscale
+}
+
+.FinanceModule {
+ width: 100%;
+ margin: auto auto 20px
+}
+
+.FinanceModule__Tabs {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ border-bottom: 5px solid;
+ border-color: #f9f9f9;
+ width: 100%;
+ margin: 0 auto -5px;
+ padding: 0
+}
+
+@media (min-width: 768px) {
+ .FinanceModule__Tabs {
+  display: flex;
+  height: auto
+ }
+}
+
+@media (min-width: 1440px) {
+ .FinanceModule {
+  max-width: 75vw
+ }
+}
+
+.FinanceModuleHeader {
+ font-family: "SamsungSharpSans", sans-serif;
+ color: #000;
+ text-align: center;
+ margin: 2em auto;
+ white-space: nowrap;
+ display: flex;
+ justify-content: center;
+ align-items: center
+}
+
+@media (min-width: 768px) {
+ .FinanceModuleHeader {
+  font-family: "SamsungSharpSans", sans-serif;
+  color: #000;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto
+ }
+}
+
+.Heading {
+ font-family: "SamsungSharpSans", sans-serif;
+ font-weight: 700;
+ margin: 0;
+ padding: 0
+}
+
+.Heading1 {
+ font-size: 64px;
+ font-size: 8.33333vw
+}
+
+.Heading2 {
+ font-size: 50px;
+ font-size: 6.51042vw
+}
+
+.Heading3 {
+ font-size: 44px;
+ font-size: 5.72917vw
+}
+
+.Heading4 {
+ font-size: 38px;
+ font-size: 4.94792vw
+}
+
+.Heading5 {
+ font-size: 26px;
+ font-size: 3.38542vw
+}
+
+@media (min-width: 768px) {
+ .Heading1 {
+  font-size: 64px;
+  font-size: 4.44444vw
+ }
+
+ .Heading2 {
+  font-size: 50px;
+  font-size: 3.47222vw
+ }
+
+ .Heading3 {
+  font-size: 40px;
+  font-size: 2.77778vw
+ }
+
+ .Heading4 {
+  font-size: 28px;
+  font-size: 1.94444vw
+ }
+
+ .Product-Title {
+  font-size: 22px;
+  font-size: 1.52778vw
+ }
+
+ .Heading5 {
+  font-size: 16px;
+  font-size: 1.11111vw
+ }
+}
+
+@media (min-width: 1440px) {
+ .Heading1 {
+  font-size: 64px
+ }
+
+ .Heading2 {
+  font-size: 50px
+ }
+
+ .Heading3 {
+  font-size: 40px
+ }
+
+ .Heading4 {
+  font-size: 28px
+ }
+
+ .Product-Title {
+  font-size: 22px
+ }
+
+ .Heading5 {
+  font-size: 16px
+ }
+}
+
+.Heading--left {
+ text-align: left
+}
+
+.Heading--center {
+ text-align: center
+}
+
+.Heading--right {
+ text-align: right
+}
+
+.FinanceTab__Container {
+ display: flex;
+ flex-direction: row;
+ height: 100%;
+ width: 80%;
+ margin: auto;
+ justify-content: center
+}
+
+.FinanceTab__Container--monthly {
+ padding: 5%
+}
+
+@media (max-width: 767px) {
+ .FinanceTab__Container {
+  margin-top: auto;
+  margin-bottom: auto;
+  flex-direction: column;
+  width: 100%
+ }
+}
+
+.FinanceModule__Tabs__Container {
+ margin: auto auto 2em;
+ max-width: 1320px
+}
+
+@media (min-width: 1440px) {
+ .FinanceModule__Tabs__Container {
+  margin: auto auto 3em
+ }
+}
+
+.FinanceTab__Copy {
+ margin: auto 0;
+ align-self: flex-start
+}
+
+.FinanceTab {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ list-style: none;
+ width: 100%;
+ text-align: center;
+ flex-direction: column;
+ color: #000;
+ text-transform: uppercase;
+ font-family: "SamsungOne", sans-serif;
+ font-weight: 600;
+ cursor: pointer;
+ max-width: 340px;
+ padding: 1.3% 2%;
+ box-sizing: unset;
+ -webkit-transition: all .3s;
+ transition: all .3s;
+ justify-content: space-evenly;
+ font-size: 20px;
+ font-size: 2.60417vw
+}
+
+.FinanceTab--active {
+ color: #2189ff;
+ background: #fff;
+ border-color: #2189ff;
+ font-weight: 800;
+ -webkit-transition: 1s;
+ transition: 1s
+}
+
+.FinanceTab__Icon {
+ justify-content: center
+}
+
+.tradeInIcon {
+ width: 50%
+}
+
+@media (min-width: 768px) {
+ .FinanceTab {
+  flex-direction: row;
+  padding: 0;
+  box-sizing: border-box;
+  justify-content: center;
+  height: 72px;
+  height: 5vw;
+  font-size: 18px;
+  font-size: 1.25vw
+ }
+
+ .FinanceTab__Icon {
+  display: block;
+  height: 100%;
+  margin-right: 10px;
+  padding: 4% 0;
+  width: 35%;
+  justify-content: flex-end
+ }
+
+ .FinanceTab__Copy {
+  white-space: nowrap
+ }
+}
+
+@media (min-width: 1440px) {
+ .FinanceTab {
+  height: 72px;
+  font-size: 18px;
+  max-width: 340px
+ }
+}
+
+@media (max-width: 767px) {
+ .FinanceTab {
+  padding-bottom: 1em;
+  width: 100%;
+  height: 100%
+ }
+
+ .FinanceTab__Copy {
+  padding-top: 1em;
+  height: 50%;
+  margin: 0 auto
+ }
+
+ .FinanceTab__Icon {
+  height: 50%;
+  padding: 5%;
+  width: 50%;
+  margin: auto
+ }
+
+ .tradeInIcon {
+  width: 100%
+ }
+}
+
+.FinanceComponent {
+ width: 100%
+}
+
+.FinanceComponent__Panels {
+ display: flex;
+ flex-direction: column;
+ margin: auto auto 3em
+}
+
+.FinanceComponent__Panel {
+ width: 90%;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ margin: 0 auto;
+ padding: 6.25vw 0
+}
+
+.FinanceComponent__Panel p {
+ width: 100%
+}
+
+.FinanceComponent__Panel--grey {
+ background: #f8f8f8;
+ margin: 2%;
+ padding: 5%;
+ width: 33.3%
+}
+
+.FinanceComponent__Panel_Tabs {
+ display: flex;
+ justify-content: center;
+ width: 100%;
+ max-width: 960px;
+ margin: auto
+}
+
+@media (max-width: 767px) {
+ .FinanceComponent__Panel_Tabs--MobileOnly {
+  display: flex;
+  margin-top: 10%
+ }
+}
+
+.FinanceComponent__Panel_Tab {
+ display: flex;
+ align-items: center;
+ text-transform: uppercase;
+ border: 2px solid #d8d8d8;
+ border-radius: 3px;
+ font-weight: 600;
+ padding: 1.69271vw 2.60417vw;
+ font-size: 14px;
+ font-size: 1.82292vw;
+ margin-right: 1.69271vw
+}
+
+.FinanceComponent__Panel_Tab,
+.FinanceComponent__Panel_Tab--PayPal_Credit {
+ cursor: pointer;
+ -webkit-transition: all .2s ease-in-out;
+ transition: all .2s ease-in-out
+}
+
+.FinanceComponent__Panel_Tab--PayPal_Credit {
+ text-align: center;
+ width: 80px;
+ border: 2px solid #d8d8d8;
+ border-radius: 4px;
+ background-color: #fff;
+ font-family: "SamsungSharpSans", sans-serif;
+ font-size: 15px;
+ font-weight: 700;
+ color: #4a4a4a;
+ margin: 0 .5%;
+ box-sizing: border-box;
+ padding: 3px;
+ display: block
+}
+
+.FinanceComponent__Panel_Tab--PayPal_Credit--active {
+ border: 2px solid #2189ff
+}
+
+.FinanceComponent__Panel_Tab:last-child {
+ margin-right: 0
+}
+
+.FinanceComponent__Panel_Tab--active {
+ border: 2px solid #2189ff
+}
+
+.FinanceComponent__Panel_Tab_Icon {
+ margin-right: 1.69271vw
+}
+
+.FinanceComponent__Panel_Tab__Text--Bold {
+ color: #4a4a4a;
+ font-family: "SamsungSharpSans", sans-serif;
+ font-size: 15px;
+ font-weight: 700;
+ text-align: center;
+ display: block
+}
+
+.FinanceComponent__Panel_Tab__Text--Months {
+ color: #4a4a4a;
+ font-family: "SamsungOne", sans-serif;
+ font-size: 10px;
+ text-align: center;
+ font-weight: 100;
+ display: block
+}
+
+.FinanceComponent__Panel_Tab_Body {
+ display: none;
+ width: 100%
+}
+
+.FinanceComponent__Panel_Tab_Body--active {
+ display: block
+}
+
+@media (min-width: 768px) {
+ .FinanceComponent {
+  display: flex
+ }
+
+ .FinanceComponent__Panels {
+  flex-direction: row;
+  justify-content: center
+ }
+
+ .FinanceComponent__Panel {
+  padding: 4.44444vw .69444vw;
+  width: 100%
+ }
+
+ .FinanceComponent__Panel_Tab {
+  padding: .90278vw 2.77778vw;
+  font-size: 14px;
+  font-size: .97222vw;
+  margin-right: .90278vw
+ }
+
+ .FinanceComponent__Panel_Tab_Icon {
+  margin-right: .90278vw;
+  height: 100%
+ }
+}
+
+@media (min-width: 1440px) {
+ .FinanceComponent__Panel {
+  padding: 64px 40px
+ }
+
+ .FinanceComponent__Panel--grey {
+  background: #f8f8f8;
+  margin: 0 2%;
+  width: 33.5%;
+  padding: 3% 2%;
+  max-width: 326px
+ }
+
+ .FinanceComponent__Panel_Tab {
+  padding: 13px 40px;
+  font-size: 14px;
+  margin-right: 13px
+ }
+}
+
+.FinanceComponent__Panel__Details__Text--title {
+ margin: 15px 0
+}
+
+.FinanceComponent__Container {
+ display: flex;
+ justify-content: center;
+ align-items: center
+}
+
+@media (max-width: 767px) {
+ .FinanceComponent__Container {
+  flex-direction: column
+ }
+}
+
+@media (max-width: 767px) {
+ .FinanceComponent__Container__Devices {
+  flex-direction: row
+ }
+}
+
+.FinanceComponent__TradeIn,
+.FinanceComponent__TradeIn__Top {
+ display: block
+}
+
+.FinanceComponent__TradeIn__Top h2 {
+ margin-bottom: 5%
+}
+
+.FinanceComponent__TradeIn__Bottom {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-direction: column
+}
+
+.FinanceComponent__TradeIn__Bottom button {
+ margin: 0 0 1.5em
+}
+
+.FinanceComponent__TradeIn__Bottom__Terms,
+.FinanceComponent__TradeIn__Device {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-direction: column
+}
+
+.FinanceComponent__TradeIn__Device img {
+ display: inline-block;
+ width: 55%;
+ max-width: 190px;
+ min-width: 90px;
+ height: 55%
+}
+
+.FinanceComponent__TradeIn__Device__PriceInfo__Text {
+ color: #000;
+ font-size: 12px;
+ line-height: 14px;
+ text-align: center;
+ margin: 0
+}
+
+.FinanceComponent__TradeIn__Device__PriceInfo__Text--FromBold {
+ font-size: 12px;
+ line-height: 15px;
+ font-family: "SamsungSharpSans", sans-serif;
+ margin: 5px 0
+}
+
+@media (max-width: 767px) {
+ .FinanceComponent__Panel_Tab {
+  flex-grow: 1;
+  justify-content: center;
+  padding: 1.5em
+ }
+
+ .FinanceComponent__Panel--grey {
+  width: 100%
+ }
+}
+
+.FinanceComponent__Panel_Tight {
+ padding: 2em 0
+}
+
+.Container {
+ max-width: 1440px
+}
+
+.Container--mobile-margins {
+ margin: 0 5.20833vw
+}
+
+.Container--margin-bottom-extra-large {
+ margin-bottom: 12.5vw
+}
+
+.Container--margin-bottom-large {
+ margin-bottom: 9.375vw
+}
+
+.Container--margin-bottom-medium {
+ margin-bottom: 6.25vw
+}
+
+.Container--margin-bottom-small {
+ margin-bottom: 2.60417vw
+}
+
+@media (min-width: 768px) {
+ .Container {
+  margin: 0 auto
+ }
+
+ .Container--margin-bottom-extra-large {
+  margin-bottom: 7.5vw
+ }
+
+ .Container--margin-bottom-large {
+  margin-bottom: 5.83333vw
+ }
+
+ .Container--margin-bottom-medium {
+  margin-bottom: 3.33333vw
+ }
+
+ .Container--margin-bottom-small {
+  margin-bottom: 1.38889vw
+ }
+}
+
+@media (min-width: 1440px) {
+ .Container--margin-bottom-extra-large {
+  margin-bottom: 108px
+ }
+
+ .Container--margin-bottom-large {
+  margin-bottom: 84px
+ }
+
+ .Container--margin-bottom-medium {
+  margin-bottom: 48px
+ }
+
+ .Container--margin-bottom-small {
+  margin-bottom: 20px
+ }
+}
+
+h1.Heading,
+h2.Heading,
+h3.Heading,
+h4.Heading,
+h5.Heading {
+ font-family: "SamsungSharpSans", sans-serif;
+ font-weight: 700;
+ margin: 1em;
+ padding: 10px 0
+}
+
+.Product-Title {
+ text-align: center;
+ max-width: 400px;
+ min-height: 58px;
+ margin: 0 auto
+}
+
+h1.Heading1 {
+ font-size: 64px;
+ font-size: 8.33333vw
+}
+
+h2.Heading2 {
+ font-size: 50px;
+ font-size: 6.51042vw
+}
+
+h3.Heading3 {
+ font-size: 44px;
+ font-size: 5.72917vw
+}
+
+h4.Heading4 {
+ font-size: 38px;
+ font-size: 4.94792vw
+}
+
+.Product-Title {
+ font-size: 32px;
+ font-size: 4.16667vw
+}
+
+h5.Heading5 {
+ font-size: 26px;
+ font-size: 3.38542vw;
+ margin: 0
+}
+
+@media (min-width: 768px) {
+ h1.Heading1 {
+  font-size: 64px;
+  font-size: 4.44444vw
+ }
+
+ h2.Heading2 {
+  font-size: 50px;
+  font-size: 3.47222vw
+ }
+
+ h3.Heading3 {
+  font-size: 40px;
+  font-size: 2.77778vw
+ }
+
+ h4.Heading4 {
+  font-size: 28px;
+  font-size: 1.94444vw
+ }
+
+ .Product-Title {
+  font-size: 22px;
+  font-size: 1.52778vw
+ }
+
+ h5.Heading5 {
+  font-size: 16px;
+  font-size: 1.11111vw
+ }
+}
+
+@media (min-width: 1440px) {
+ h1.Heading1 {
+  font-size: 64px
+ }
+
+ h2.Heading2 {
+  font-size: 50px
+ }
+
+ h3.Heading3 {
+  font-size: 40px
+ }
+
+ h4.Heading4 {
+  font-size: 28px
+ }
+
+ .Product-Title {
+  font-size: 22px
+ }
+
+ h5.Heading5 {
+  font-size: 16px
+ }
+}
+
+h1.Heading--left,
+h2.Heading--left,
+h3.Heading--left,
+h4.Heading--left,
+h5.Heading--left {
+ text-align: left
+}
+
+h1.Heading--center,
+h2.Heading--center,
+h3.Heading--center,
+h4.Heading--center,
+h5.Heading--center {
+ text-align: center
+}
+
+h1.Heading--right,
+h2.Heading--right,
+h3.Heading--right,
+h4.Heading--right,
+h5.Heading--right {
+ text-align: right
+}
+
+.noMargin {
+ margin: 0 !important
+}
+
+.offBlack {
+ color: #6e6a69
+}
+
+.ImageLoader {
+ display: block;
+ object-fit: contain
+}
+
+.ImageLoader__reduce {
+ -webkit-transform: scale(.8);
+ transform: scale(.8)
+}
+
+.ImageLoader--loaded {
+ background: none
+}
+
+.ImageLoader--fill-both {
+ width: auto;
+ height: 100%;
+ margin: 0 auto
+}
+
+.ImageLoader--fill-height {
+ height: 100%
+}
+
+.ImageLoader--fill-width {
+ width: 100%
+}
+
+.ImageLoaderActivity {
+ width: 100%;
+ height: 100%;
+ display: flex;
+ align-items: center;
+ justify-content: center
+}
+
+.ImageLoaderActivity__Dots {
+ display: flex
+}
+
+.ImageLoaderActivity__Dot {
+ width: 12px;
+ width: .83333vw;
+ height: 12px;
+ height: .83333vw;
+ margin-right: .27778vw;
+ border-radius: 6px;
+ border-radius: .41667vw;
+ background: #000;
+ -webkit-filter: blur(.25px);
+ filter: blur(.25px);
+ -webkit-animation: bounce 1.4s ease-in-out infinite;
+ animation: bounce 1.4s ease-in-out infinite
+}
+
+.ImageLoaderActivity__Dot:last-child {
+ margin-right: 0
+}
+
+.ImageLoaderActivity__Dot:first-child {
+ -webkit-animation-delay: -.48s;
+ animation-delay: -.48s
+}
+
+.ImageLoaderActivity__Dot:nth-child(2) {
+ -webkit-animation-delay: -.32s;
+ animation-delay: -.32s
+}
+
+.ImageLoaderActivity__Dot:nth-child(3) {
+ -webkit-animation-delay: -.16s;
+ animation-delay: -.16s
+}
+
+@media (min-width: 1440px) {
+ .ImageLoaderActivity__Dot {
+  width: 12px;
+  height: 12px;
+  margin-right: 4px;
+  border-radius: 6px
+ }
+}
+
+@-webkit-keyframes bounce {
+
+ 0%,
+ 80%,
+ to {
+  -webkit-transform: scale(0);
+  transform: scale(0)
+ }
+
+ 40% {
+  -webkit-transform: scale(1);
+  transform: scale(1)
+ }
+}
+
+.productImage {
+ width: 75% !important
+}
+
+@media screen and (max-width: 768px) {
+ .productImage {
+  width: 50% !important
+ }
+}
+
+p.Paragraph {
+ margin: 0;
+ padding: 0;
+ line-height: 1.5;
+ width: 100%
+}
+
+p.Paragraph--color-black {
+ color: #000
+}
+
+p.Paragraph--color-offblack {
+ color: #6e6a69
+}
+
+p.Paragraph--color-blue {
+ color: #2189ff
+}
+
+p.Paragraph--xlarge {
+ font-size: 40px;
+ font-size: 2.77778vw
+}
+
+p.Paragraph--large {
+ font-size: 38px;
+ font-size: 4.94792vw
+}
+
+p.Paragraph--medium {
+ font-size: 32px;
+ font-size: 4.16667vw
+}
+
+p.Paragraph--regular {
+ font-size: 26px;
+ font-size: 3.38542vw
+}
+
+p.Paragraph--small,
+p.Paragraph--xsmall {
+ font-size: 20px;
+ font-size: 2.60417vw
+}
+
+@media (min-width: 768px) {
+ p.Paragraph--xlarge {
+  font-size: 23px;
+  font-size: 1.59722vw
+ }
+
+ p.Paragraph--large {
+  font-size: 20px;
+  font-size: 1.38889vw
+ }
+
+ p.Paragraph--medium {
+  font-size: 18px;
+  font-size: 1.25vw
+ }
+
+ p.Paragraph--regular {
+  font-size: 16px;
+  font-size: 1.11111vw
+ }
+
+ p.Paragraph--small {
+  font-size: 12px;
+  font-size: .83333vw
+ }
+
+ p.Paragraph--xsmall {
+  font-size: 10px;
+  font-size: .69444vw
+ }
+}
+
+@media (min-width: 1440px) {
+ p.Paragraph--xlarge {
+  font-size: 23px
+ }
+
+ p.Paragraph--large {
+  font-size: 20px
+ }
+
+ p.Paragraph--medium {
+  font-size: 18px
+ }
+
+ p.Paragraph--regular {
+  font-size: 16px
+ }
+
+ p.Paragraph--small {
+  font-size: 12px
+ }
+
+ p.Paragraph--xsmall {
+  font-size: 10px
+ }
+}
+
+p.Paragraph--bold {
+ font-weight: 700
+}
+
+p.Paragraph--normal {
+ font-weight: 400
+}
+
+p.Paragraph--left {
+ text-align: left
+}
+
+p.Paragraph--center {
+ text-align: center
+}
+
+p.Paragraph--right {
+ text-align: right
+}
+
+p.Paragraph--secondary {
+ font-family: "SamsungSharpSans", sans-serif
+}
+
+p.Paragraph--uppercase {
+ text-transform: uppercase
+}
+
+.FinanceComponent__Panels--monthly {
+ margin: auto auto 1em
+}
+
+.FinanceComponent__Samsung_Upgrade .Heading2 {
+ margin-bottom: 10px
+}
+
+.FinanceComponent__TradeIn__Bottom {
+ width: 75%;
+ margin: 0 auto
+}
+
+.FinanceComponent__TradeIn__Bottom p {
+ padding-bottom: 10px
+}
+
+@media only screen and (max-width: 425px) {
+ .FinanceComponent__TradeIn__Bottom__Terms {
+  text-align: center
+ }
+}
+
+.FinanceComponent__Panel--grey a {
+ text-decoration: none
+}
+
+.learnmore {
+ color: #000;
+ text-decoration: underline;
+ padding: 10px;
+ font-size: 14px
+}
+
+.selected__retailers__btn {
+ border: none;
+ background: none;
+ font-family: inherit;
+ color: #2189ff;
+ cursor: pointer;
+ padding: 0;
+ text-transform: lowercase;
+ font-weight: 400
+}
+
+.retailter-popup {
+ display: block;
+ top: 0;
+ left: 0;
+ bottom: 0;
+ right: 0;
+ position: fixed;
+ height: 100%;
+ z-index: 9999
+}
+
+.retailter-popup .retailter-popup__dimmed {
+ position: fixed;
+ top: 0;
+ left: 0;
+ bottom: 0;
+ right: 0;
+ background-color: #000;
+ opacity: .75
+}
+
+.retailter-popup .retailter-popup-wrap {
+ height: 100%;
+ padding: 30px;
+ text-align: center;
+ box-sizing: border-box
+}
+
+.retailter-popup .retailter-popup-wrap .retailter-popup-layer {
+ display: inline-block;
+ position: absolute;
+ max-width: 640px;
+ text-align: left;
+ vertical-align: middle;
+ box-sizing: border-box;
+ overflow: auto;
+ top: 50%;
+ left: 50%;
+ max-height: 100%;
+ -webkit-transform: translate(-50%, -50%);
+ transform: translate(-50%, -50%)
+}
+
+.retailter-popup .retailter-popup-wrap .retailter-popup-layer .retailter-popup-inner {
+ position: relative;
+ background: #fff;
+ border-radius: 25px
+}
+
+.popup {
+ position: fixed;
+ top: 0;
+ width: 100%
+}
+
+@media only screen and (max-width: 425px) {
+ .popup {
+  top: -100px;
+  height: 100vh
+ }
+}
+
+.popup-inner {
+ position: relative;
+ padding: 32px;
+ width: 100%;
+ max-width: 640px;
+ background-color: #fff;
+ border-radius: 25px
+}
+
+@media only screen and (max-width: 425px) {
+ .popup-inner {
+  padding: 32px 15px;
+  width: calc(100% - 30px);
+  margin: 15px;
+  height: 75%;
+  overflow: auto
+ }
+}
+
+.popup-inner .close-btn {
+ position: absolute;
+ top: 16px;
+ right: 16px;
+ background: none;
+ border: none;
+ cursor: pointer
+}
+
+.popup-inner .close-btn:before {
+ display: block;
+ width: 20px;
+ height: 25px;
+ background-size: 100% auto;
+ content: "";
+ background: url(https://www.samsung.com/etc.clientlibs/samsung/clientlibs/consumer/global/clientlib-common/resources/images/svg-layer-close.svg) no-repeat 0 0
+}
+
+.Container--mobile-margins .popup__heading {
+ font-size: 27px
+}
+
+@media only screen and (max-width: 425px) {
+ .Container--mobile-margins {
+  margin: 0
+ }
+
+ .Container--mobile-margins .popup__heading {
+  font-size: 7vw;
+  text-align: center
+ }
+}
+
+.title__link__container {
+ display: flex;
+ justify-content: space-between;
+ border-bottom: 1px solid hsla(0, 0%, 50.2%, .529);
+ padding: 10px 0;
+ align-items: center
+}
+
+@media only screen and (max-width: 425px) {
+ .title__link__container {
+  padding: 5px 0;
+  flex-direction: column;
+  align-items: flex-start
+ }
+}
+
+.title__link__container p {
+ font-size: 26px;
+ font-size: 3.38542vw
+}
+
+@media only screen and (min-width: 768px) {
+ .title__link__container p {
+  font-size: 16px;
+  font-size: 1.11111vw
+ }
+}
+
+@media only screen and (min-width: 1440px) {
+ .title__link__container p {
+  font-size: 16px
+ }
+}
+
+.title__link__container .link {
+ text-align: left;
+ width: 50%
+}
+
+@media screen and (max-width: 425px) {
+ .title__link__container .link {
+  width: 100%
+ }
+}
+
+.title__link__container .link a {
+ overflow-wrap: break-word
+}
+
+.title__link__container .title {
+ width: 50%
+}
+
+@media screen and (max-width: 425px) {
+ .title__link__container .title {
+  width: 100%;
+  padding: 5px 0
+ }
+}
+
+.FinanceComponent__Trade_In {
+ display: block
+}
+
+.FinanceComponent__PanelCenter {
+ margin-top: auto;
+ margin-bottom: auto
+}
+
+.play-video-container {
+ display: flex;
+ justify-content: center
+}
+
+.open-video-button {
+ background: none;
+ border: none;
+ display: flex;
+ align-items: center;
+ font-size: 18px;
+ margin-bottom: 3.5rem
+}
+
+@media (max-width: 768px) {
+ .open-video-button {
+  justify-content: center
+ }
+}
+
+.open-video-button .blue-play-icon {
+ margin-right: 6px
+}
+
+.open-video-button span {
+ color: #0077c8;
+ font-weight: 700;
+ text-transform: uppercase;
+ line-height: 1
+}
+
+.overlay {
+ position: fixed;
+ background: rgba(0, 0, 0, .9);
+ top: 0;
+ left: 0;
+ width: 0;
+ width: 100%;
+ height: 100%;
+ z-index: 999
+}
+
+@media (max-width: 768px) {
+ .overlay {
+  max-width: 450px
+ }
+}
+
+.youtube-video {
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ -webkit-transform: translate(-50%, -50%);
+ transform: translate(-50%, -50%);
+ width: 640px;
+ height: 390px
+}
+
+@media (max-width: 768px) {
+ .youtube-video {
+  top: 45%;
+  width: 250px;
+  height: 200px
+ }
+}
+
+.how-it-works-heading {
+ margin-bottom: 3.5rem
+}
+
+.close-video-icon {
+ position: absolute;
+ left: 90%;
+ top: 10%;
+ width: 30px;
+ height: 30px;
+ fill: #fff;
+ cursor: pointer
+}
+
+@media (max-width: 768px) {
+ .close-video-icon {
+  left: 80%;
+  top: 20%;
+  width: 20px;
+  height: 20px
+ }
+}
+
+.FinanceComponent__Samsung_Upgrade {
+ display: block
+}
+
+.FinanceComponent__Panel_UpgradeConfigure {
+ display: flex;
+ justify-content: center
+}
+
+.FinanceComponent__Samsung_Upgrade__Panel_Icon {
+ height: 100px;
+ height: 13.02083vw
+}
+
+@media (min-width: 768px) {
+ .FinanceComponent__Samsung_Upgrade__Panel_Icon {
+  height: 65px;
+  height: 4.51389vw
+ }
+}
+
+@media (min-width: 1440px) {
+ .FinanceComponent__Samsung_Upgrade__Panel_Icon {
+  height: 65px
+ }
+}
+
+.modal {
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background: rgba(0, 0, 0, .6);
+ z-index: 1050
+}
+
+.modal .modal-main {
+ position: fixed;
+ background: #fff;
+ width: 80%;
+ height: auto;
+ top: 50%;
+ left: 50%;
+ -webkit-transform: translate(-50%, -50%);
+ transform: translate(-50%, -50%);
+ padding-top: 5%;
+ overflow: scroll;
+ max-height: 90%
+}
+
+@media (max-width: 767px) {
+ .modal .modal-main {
+  height: 80vh;
+  width: 95%;
+  overflow: scroll;
+  padding-top: 2.5%
+ }
+}
+
+.modal .modal-close {
+ position: absolute;
+ right: 3%;
+ top: 0;
+ opacity: .3
+}
+
+.modal .modal-close:after,
+.modal .modal-close:before {
+ position: absolute;
+ left: -10px;
+ top: 10px;
+ content: " ";
+ height: 33px;
+ width: 2px;
+ background-color: #333
+}
+
+.modal .modal-close:before {
+ -webkit-transform: rotate(45deg);
+ transform: rotate(45deg)
+}
+
+.modal .modal-close:after {
+ -webkit-transform: rotate(-45deg);
+ transform: rotate(-45deg)
+}
+
+.display-block {
+ display: block
+}
+
+.display-none {
+ display: none
+}
+
+.Button.modal-opening {
+ border: none;
+ cursor: pointer
+}
+
+.Button.modal-opening p {
+ -webkit-transition: all .25s ease-in-out;
+ transition: all .25s ease-in-out
+}
+
+.Button.modal-opening:hover {
+ background: none;
+ border: none
+}
+
+.Button.modal-opening:hover p {
+ color: #000
+}
+
+.Finance__contracts {
+ display: block;
+ padding: 2%
+}
+
+.contracts__row {
+ display: flex;
+ box-shadow: 0 0 4px 0 rgba(17, 22, 26, .16), 0 2px 4px 0 rgba(17, 22, 26, .08), 0 4px 8px 0 rgba(17, 22, 26, .08);
+ margin: 20px 0;
+ padding: 2%
+}
+
+.contracts__box {
+ flex: 0.8 1;
+ margin: 0 .5%
+}
+
+.contracts__box img {
+ max-width: 65px
+}
+
+.contracts__box--grey {
+ background: #f8f8f8;
+ max-height: 150px;
+ padding: 2%
+}
+
+@media (max-width: 768px) {
+ .contracts__box {
+  flex: auto;
+  white-space: nowrap
+ }
+}
+
+.contracts__image {
+ display: flex;
+ justify-content: center;
+ margin-bottom: 10%
+}
+
+.contracts__highlights {
+ flex: 2 1;
+ margin: 0 .5%
+}
+
+.contracts__highlights ul {
+ list-style-type: none
+}
+
+.contracts__highlights ul li {
+ margin: 2%
+}
+
+.contracts__highlights ul li p {
+ text-indent: -5px
+}
+
+.contracts__highlights ul li p:before {
+ content: "- ";
+ text-indent: -5px
+}
+
+.contracts__highlights--padtop {
+ padding-top: 1%
+}
+
+.contracts__card {
+ display: flex;
+ flex-direction: column;
+ padding: 5%;
+ margin: 1.5em auto;
+ box-shadow: -1px 2px 4px hsla(0, 0%, 89%, .5);
+ width: 90%;
+ min-width: 90vw;
+ height: auto
+}
+
+.contracts__card>* {
+ margin: 3%
+}
+
+.contracts__details {
+ display: flex;
+ justify-content: space-between
+}
+
+@media (max-width: 768px) {
+ .desktop-finance {
+  display: none
+ }
+}
+
+@media (min-width: 769px) {
+ .mobile {
+  display: none
+ }
+}
+
+.line {
+ height: 1px;
+ background-color: #73736f;
+ padding: 1px
+}
+
+.finance__delivery {
+ display: flex;
+ flex-wrap: wrap;
+ max-width: 95%;
+ margin: 0 auto
+}
+
+.finance__delivery--column {
+ width: 50%;
+ padding: 1%
+}
+
+@media only screen and (max-width: 768px) {
+ .finance__delivery--column {
+  width: 100%
+ }
+}
+
+.finance__delivery--price {
+ padding: 0 2%
+}
+
+.finance__delivery--item {
+ display: flex;
+ margin-bottom: 5% !important
+}
+
+.finance__delivery--item--price {
+ justify-content: space-between;
+ display: flex;
+ align-items: flex-end
+}
+
+.finance__delivery--item h4 {
+ margin-bottom: 2% !important
+}
+
+@media only screen and (max-width: 768px) {
+ .finance__delivery--item {
+  width: 100%
+ }
+}
+
+.finance__delivery--title {
+ margin-left: 0 !important;
+ margin-right: 0 !important;
+ padding: 1%
+}
+
+.finance__delivery a {
+ color: #000;
+ border-bottom: 1px solid #000;
+ cursor: pointer
+}
+
+@media only screen and (max-width: 768px) {
+ .finance__delivery {
+  width: 98%
+ }
+}
+
+.monthly-version .Button.modal-opening {
+ background: none;
+ border: none
+}
+
+.monthly-version .Button.modal-opening.left {
+ padding-left: 0
+}
+
+.Button {
+ border: 1px solid #000;
+ background: none;
+ text-transform: uppercase;
+ font-weight: 700;
+ color: #000;
+ text-decoration: none;
+ display: block;
+ cursor: pointer;
+ padding: 2.60417vw 7.8125vw;
+ font-size: 24px;
+ font-size: 3.125vw;
+ border-radius: 60px;
+ border-radius: 7.8125vw
+}
+
+.Button__blue {
+ border: 1px solid #2189ff;
+ color: #fff
+}
+
+.Button__blue,
+.Button__blue:hover {
+ background-color: #2189ff
+}
+
+.Button__black {
+ border: 1px solid #000;
+ color: #fff;
+ text-transform: none
+}
+
+.Button__black,
+.Button__black:hover {
+ background-color: #000
+}
+
+.Button__full {
+ width: 100%;
+ text-align: center
+}
+
+.Button:hover {
+ background: #000;
+ color: #fff
+}
+
+.Button--center {
+ margin: 0 auto
+}
+
+.Button__Link_Wrap {
+ display: flex
+}
+
+.Button__Link_Wrap .Button {
+ display: inline-block
+}
+
+.Button__Link_Wrap--left {
+ align-items: flex-start
+}
+
+.Button__Link_Wrap--center {
+ align-items: center
+}
+
+.Button__Link_Wrap--right {
+ align-items: flex-end
+}
+
+@media (min-width: 768px) {
+ .Button {
+  padding: .97222vw 2.77778vw;
+  font-size: 13px;
+  font-size: .90278vw;
+  border-radius: 29px;
+  border-radius: 2.01389vw
+ }
+}
+
+@media (min-width: 1440px) {
+ .Button {
+  padding: 14px 40px;
+  font-size: 13px;
+  border-radius: 29px
+ }
+}
+
+.TabIndicator {
+ display: block;
+ height: 5px;
+ height: 3px;
+ background: #2189ff;
+ z-index: 1;
+ -webkit-transition: width 2s, left 1s;
+ transition: width 2s, left 1s;
+ position: relative;
+ left: 75%
+}
+
+.cheil-static .footer {
+ display: flex;
+ flex-direction: row;
+ width: 100%;
+ justify-content: space-evenly
+}
+
+.cheil-static .footer-item {
+ display: flex;
+ flex-direction: row;
+ flex-grow: 1;
+ background-color: #f9f9f9;
+ padding: 2%
+}
+
+.cheil-static .footer-icon {
+ width: 30%;
+ margin: auto;
+ height: 70%;
+ max-width: 50px;
+ max-height: 50px
+}
+
+.cheil-static .footer-icon svg {
+ margin: auto;
+ display: flex;
+ height: 100%;
+ max-width: 50px;
+ max-height: 50px
+}
+
+.cheil-static .footer-copy {
+ width: 60%;
+ height: -webkit-fit-content;
+ height: -moz-fit-content;
+ height: fit-content
+}
+
+.cheil-static .footer__Buttons {
+ display: flex;
+ flex-direction: row;
+ width: 30%;
+ justify-content: space-around;
+ margin: 1em auto
+}
+
+.learnMore {
+ border: none;
+ text-decoration: underline
+}
+
+.learnMore:hover {
+ background: none;
+ color: #000;
+ text-decoration: none
+}
+
+@media (max-width: 767px) {
+ .cheil-static .footer {
+  flex-direction: column
+ }
+
+ .cheil-static .footer__Buttons {
+  flex-direction: column;
+  width: 50%;
+  margin: auto
+ }
+
+ .cheil-static .footer-item {
+  flex-direction: column;
+  margin: 3%
+ }
+
+ .cheil-static .footer-icon {
+  width: 30%;
+  height: 20%;
+  margin: 1em auto;
+  max-width: 50px;
+  max-height: 50px
+ }
+
+ .cheil-static .footer-copy {
+  margin: .5em auto;
+  width: 90%;
+  text-align: center
+ }
+
+ .cheil-static .footer-copy p {
+  text-align: center
+ }
+}
+
+.FinanceComponentLoader {
+ display: block;
+ object-fit: contain
+}
+
+.FinanceComponentLoader--loaded {
+ background: none
+}
+
+.FinanceComponentLoader--fill-both {
+ width: 100%;
+ height: 100%
+}
+
+.FinanceComponentLoader--fill-height {
+ height: 100%
+}
+
+.FinanceComponentLoader--fill-width {
+ width: 100%
+}
+
+.FinanceComponentLoaderActivity {
+ width: 100%;
+ height: 100%;
+ display: flex;
+ align-items: center;
+ justify-content: center
+}
+
+.FinanceComponentLoaderActivity__Dots {
+ display: flex
+}
+
+.FinanceComponentLoaderActivity__Dot {
+ width: 12px;
+ width: .83333vw;
+ height: 12px;
+ height: .83333vw;
+ margin-right: .27778vw;
+ border-radius: 6px;
+ border-radius: .41667vw;
+ background: #000;
+ -webkit-filter: blur(.25px);
+ filter: blur(.25px);
+ -webkit-animation: bounce 1.4s ease-in-out infinite;
+ animation: bounce 1.4s ease-in-out infinite
+}
+
+.FinanceComponentLoaderActivity__Dot:last-child {
+ margin-right: 0
+}
+
+.FinanceComponentLoaderActivity__Dot:first-child {
+ -webkit-animation-delay: -.48s;
+ animation-delay: -.48s
+}
+
+.FinanceComponentLoaderActivity__Dot:nth-child(2) {
+ -webkit-animation-delay: -.32s;
+ animation-delay: -.32s
+}
+
+.FinanceComponentLoaderActivity__Dot:nth-child(3) {
+ -webkit-animation-delay: -.16s;
+ animation-delay: -.16s
+}
+
+@media (min-width: 1440px) {
+ .FinanceComponentLoaderActivity__Dot {
+  width: 12px;
+  height: 12px;
+  margin-right: 4px;
+  border-radius: 6px
+ }
+}
+
+@keyframes bounce {
+
+ 0%,
+ 80%,
+ to {
+  -webkit-transform: scale(0);
+  transform: scale(0)
+ }
+
+ 40% {
+  -webkit-transform: scale(1);
+  transform: scale(1)
+ }
+}
+
+/*# sourceMappingURL=main.6b15cb8c.chunk.css.map */
