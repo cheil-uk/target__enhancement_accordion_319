@@ -1,0 +1,314 @@
+.popup__pricepromise__modal {
+ display: none;
+ top: 0;
+ left: 0;
+ bottom: 0;
+ right: 0;
+ position: fixed;
+ height: 100%;
+ z-index: 9999;
+ background-color: #000000c2;
+
+ &.popup__pricepromise__modal--show {
+  display: flex;
+ }
+
+ h1,
+ h2,
+ h3,
+ h4 {
+  font-family: SamsungSharpBold, Arial, Helvetica, sans-serif;
+ }
+
+ p {
+  font-size: 15px;
+ }
+}
+
+.popupInner {
+ background-color: white;
+ max-height: 90%;
+ box-sizing: border-box;
+ position: absolute;
+ border-radius: 20px;
+ max-width: 750px;
+ vertical-align: middle;
+ overflow: auto;
+ top: 50%;
+ left: 50%;
+ display: inline-block;
+ transform: translate(-50%, -50%);
+
+ @media only screen and (max-width: 1024px) {
+  width: 100%;
+ }
+}
+
+.popupInner::-webkit-scrollbar {
+ display: none;
+}
+
+.popupInner {
+ .close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 99999;
+ }
+
+ .close::before {
+  display: block;
+  width: 20px;
+  height: 25px;
+  background-size: 100% auto;
+  content: '';
+  background: url(https://www.samsung.com/etc.clientlibs/samsung/clientlibs/consumer/global/clientlib-common/resources/images/svg-layer-close.svg) no-repeat 0 0;
+ }
+}
+
+.popupInner {
+ .content {
+  @media only screen and (max-width: 522px) {
+   top: 0;
+   padding: 20px 0;
+  }
+
+  max-width: 768px;
+  width: 100%;
+  margin: 0px auto 20px;
+  padding: 20px;
+  position: relative;
+
+  // top: 10%;
+  .tabcontent {
+   margin-bottom: 50px;
+
+   @media only screen and (max-width: 522px) {
+    padding: 0px 20px;
+   }
+  }
+
+  .pricepromise__title {
+   display: flex;
+   flex-direction: column;
+   padding-bottom: 30px;
+   text-align: center;
+
+   h1 {
+    font-weight: bold;
+    padding-bottom: 15px;
+    font-size: 36px;
+    margin-top: 35px;
+    margin-bottom: 15px;
+
+    @media only screen and (max-width: 522px) {
+     font-size: 26px;
+    }
+   }
+
+   p {
+    margin-bottom: 41px;
+
+    @media only screen and (max-width: 522px) {
+     font-size: 16px;
+     padding: 0 26px;
+     margin-bottom: 10px;
+    }
+   }
+  }
+
+  ul {
+   display: flex;
+   list-style: none;
+   justify-content: center;
+   padding: 0;
+   text-transform: uppercase;
+   color: #2189ff;
+
+   .tabmenu {
+    font-weight: bold;
+    width: 50%;
+    text-align: center;
+    padding-bottom: 5px;
+    cursor: pointer;
+    border-bottom: 3px solid #eaeaeb;
+    font-size: 18px;
+
+    @media only screen and (max-width: 522px) {
+     font-size: 12px;
+    }
+
+   }
+
+   .active {
+    border-bottom: 3px solid #2189ff;
+   }
+  }
+ }
+}
+
+.pricepromise__block__container {
+ display: flex;
+ justify-content: center;
+ text-align: center;
+ padding: 30px 0px;
+
+ @media only screen and (max-width: 900px) {
+  flex-direction: column;
+ }
+
+ .priceprice__blocks {
+  padding: 15px 10px 0px 10px;
+  width: 50%;
+
+  @media only screen and (max-width: 900px) {
+   width: 100%;
+   padding: 15px 10px 10px 10px;
+  }
+
+  background-color: #8080801c;
+  margin: 5px;
+
+  .image__container {
+   height: 25%;
+   margin-bottom: 20px;
+
+   @media only screen and (max-width: 522px) {
+    margin-top: 40px;
+   }
+
+   img {
+    width: auto;
+    height: 100%;
+    margin: 0 auto;
+
+    @media only screen and (max-width: 522px) {
+     height: auto;
+     max-width: 160px;
+
+    }
+
+    &.bigger_image {
+     @media only screen and (max-width: 522px) {
+      height: auto;
+      max-width: 70px;
+
+     }
+    }
+   }
+  }
+
+  .content__container {
+   a {
+    color: #2189ff;
+   }
+
+   h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+
+    @media only screen and (max-width: 522px) {
+     font-size: 15px;
+    }
+   }
+
+   p {
+
+    font-size: 15px;
+
+    @media only screen and (max-width: 522px) {
+     font-size: 14px;
+    }
+   }
+  }
+ }
+}
+
+.pricepromise__termsandconditions__container {
+ max-width: 100%;
+ margin: 0 auto;
+ text-align: center;
+
+ .pricepromise__conditions {
+  padding: 10px 0px;
+
+  p {
+   @media only screen and (max-width: 522px) {
+    font-size: 14px;
+   }
+  }
+ }
+
+ .pricepromise__learnmore {
+  padding: 5px 0px;
+
+  a {
+   color: #000;
+   text-decoration: underline;
+   font-weight: bold;
+   vertical-align: top;
+  }
+ }
+
+ .pricepromise__smallprint {
+  padding: 5px 0px;
+
+  p {
+   font-size: 11px;
+  }
+ }
+
+ a {
+  color: #2c8dfe;
+ }
+}
+
+.title__link__container {
+ display: flex;
+ justify-content: space-between;
+ border-bottom: 1px rgba(128, 128, 128, 0.529) solid;
+ padding: 10px 0px;
+ align-items: center;
+
+ @media only screen and (max-width: 425px) {
+  padding: 5px 0px;
+  flex-direction: column;
+  align-items: flex-start;
+ }
+
+ .title {
+  width: 50%;
+  font-weight: bold;
+
+  @media screen and (max-width: 425px) {
+   width: 100%;
+   padding: 5px 0px;
+
+   p {
+    font-size: 15px;
+   }
+  }
+
+ }
+
+ .link {
+  text-align: left;
+  width: 50%;
+
+  @media screen and (max-width: 425px) {
+   width: 100%;
+
+   p {
+    font-size: 15px;
+   }
+  }
+
+  a {
+   overflow-wrap: break-word;
+   color: #2c8dfe;
+  }
+ }
+}

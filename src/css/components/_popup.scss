@@ -1,0 +1,45 @@
+.samsung__price__promise-container {
+ display: none;
+ background: #f5f5f5;
+ border-top: 1px solid #b9b9b9;
+ align-content: center;
+ border-bottom: 1px solid #b9b9b9;
+ padding: 10px 0px;
+
+ &--show {
+  display: flex;
+ }
+
+ .icon__container {
+  display: inline-block;
+  text-align: center;
+
+  img {
+   width: 50%;
+  }
+ }
+
+ .content__container {
+  h1 {
+   font-family: SamsungOne700, Arial, Helvetica, sans-serif;
+   font-weight: 700;
+
+  }
+ }
+}
+
+.link__popup {
+ display: flex;
+
+ @media screen and (max-width: 425px) {
+  width: 200%;
+ }
+
+ a {
+  cursor: pointer;
+  color: #006ff2;
+  font-weight: bold;
+  text-decoration: underline;
+  font-family: SamsungOne700, Arial, Helvetica, sans-serif;
+ }
+}

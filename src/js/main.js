@@ -7,7 +7,12 @@
 // ==========================================================================
 // Scripts, helper widgets - import below
 // ==========================================================================
-import PricePromise from "./components/PricePromise";
+import PricePromise from "./components/PricePromise"
+import TradeIn from "./components/TradeIn";
+import FinanceOptions from "./components/FinanceOptions";
+import PopUp from "./components/PopUp/popup";
+import Content from "./components/PopUp/content";
+
 var cheillondon = cheillondon || {};
 
 cheillondon.targetBoilerplate = (function () {
@@ -38,18 +43,27 @@ cheillondon.targetBoilerplate = (function () {
 			setTimeout(function () {
 				if (window.$) {
 					console.log('doEverythingTimeout - jQuery loaded');
+					main.appendNewStyle();
 					const pricePromse = new PricePromise();
+					const tradeIn = new TradeIn();
+					const financeOptions = new FinanceOptions();
+					const popUp = new PopUp();
+					const contentItems = new Content();
+					popUp.popUpContent();
+					contentItems.popUpContent();
 					pricePromse.addSection();
 					pricePromse.addContent();
-					main.appendNewStyle();
-					main.removeStuff();
+					tradeIn.addSection();
+					tradeIn.addContent();
+					financeOptions.addSection();
+					financeOptions.addContent();
 					main.addElements();
 
 				} else {
 					console.log('no jquery')
 					_self.doEverythingTimeout();
 				}
-			}, 900)
+			}, 3000)
 		},
 
 
@@ -82,21 +96,18 @@ cheillondon.targetBoilerplate = (function () {
 
 		},
 
-		removeStuff: function () {
-
-			console.log('removeStuff');
-
-			//Remove Elements
-		},
-
-
 
 		// ==========================================================================
 		// When page is already loaded we need to add the new elements
 		// ==========================================================================
 		addElements: function () {
 
-			console.log('XXX - addElements');
+			const selectedButtons = document.querySelectorAll('.selected__retailers__btn');
+			selectedButtons.forEach((selectBtns) => {
+				selectBtns.onclick = () => {
+					document.querySelector('.popup__pricepromise__modal').style.display = 'block'
+				}
+			})
 
 
 
