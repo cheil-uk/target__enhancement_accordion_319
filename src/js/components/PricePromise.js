@@ -58,7 +58,6 @@ export default class PricePromise {
 
 
     } else {
-        console.log(accodionSection, 'pp')
         accodionSection.insertAdjacentElement('afterend', pricePromiseSection);
     }
 
@@ -97,6 +96,7 @@ export default class PricePromise {
     contentSection.innerHTML = `
     <section class="finance_section">
         <div class="finance_section_inner">
+
         <div class="FinanceComponent FinanceComponent__Samsung_Upgrade">
             <div class="Container Container--margin-bottom-small Container--mobile-margins">
                 <h2 class="Heading Heading2 Heading--center">How it works</h2>

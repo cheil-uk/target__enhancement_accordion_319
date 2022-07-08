@@ -25,7 +25,7 @@ export default class PopUp {
         }
         const popup = creatingEleFun('div', 'popup__modal');
         const popupInner = creatingEleFun('div', 'popupInner');
-        const close = creatingEleFun('div', 'close');
+        const close = creatingEleFun('div', 'popup-close');
         const content = creatingEleFun('div', 'content');
         popup.append(popupInner)
         popupInner.append(close, content)
@@ -36,15 +36,8 @@ export default class PopUp {
             document.querySelector('.popup__modal').remove();
         }
 
-        switch(typeOfPopUp) {
-            case('pricePromise'):
-                content.append(PricePromisePopupContent())
-                break;
-            case('finance'):
-                content.append(FinancePopupContent());
-                break;
-        }
-
+  
+        content.append(PricePromisePopupContent())
     }
 
     

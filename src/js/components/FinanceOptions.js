@@ -153,20 +153,24 @@ export default class FinanceOptions {
 
 
     // trigger finance popup
-    // $('.FinanceComponent_open-pop-up').on('click', function() {
-    //     $('.hubble-product__offer-emi a').click();
-    // })
-
-    // document.querySelector('.FinanceComponent-selected__retailers__btn').addEventListener('click', () => {
-    //     new PopUp('pricePromise')
-    // })
-
-        const selectedButtons = document.querySelectorAll('.FinanceComponent_open-pop-up');
-        selectedButtons.forEach((selectBtns) => {
-            selectBtns.onclick = () => {
-                new PopUp('finance')
-            }
-        })
+    if (pageType == 'watchFinance') {
+        if ($('.pd-offer__content--calculate .pd-offer__cta a')) {
+            $('.FinanceComponent_open-pop-up').on('click', function() {
+                $('.pd-offer__content--calculate .pd-offer__cta a').click();
+            })
+        } else {
+            window.location = "https://www.samsung.com/uk/samsung-finance/"
+        }
+    } else {
+        if ($('.hubble-product__offer-emi a')) {
+            $('.FinanceComponent_open-pop-up').on('click', function() {
+                $('.hubble-product__offer-emi a').click();
+            })
+        } else {
+            window.location = "https://www.samsung.com/uk/samsung-finance/"
+        }
+    }
+    //window.sg.components.financePopup.showPopup()
 
     }
 

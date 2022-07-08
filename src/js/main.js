@@ -44,20 +44,38 @@ cheillondon.targetBoilerplate = (function () {
 				if (window.$) {
 					console.log('doEverythingTimeout - jQuery loaded');
 					main.appendNewStyle();
-					const pricePromse = new PricePromise();
-					// const tradeIn = new TradeIn();
-					const financeOptions = new FinanceOptions();
-					// const popUp = new PopUp("hello world12345");
-					// const contentItems = new Content();
-					// popUp.popUpContent('test');
-					// contentItems.popUpContent();
-					// tradeIn.addSection();
-					// tradeIn.addContent();
-					pricePromse.addSection();
-					pricePromse.addContent(main.getPath());
-					financeOptions.addSection();
-					financeOptions.addContent(`${main.getPath()}Finance`);
-					main.addElements();
+					
+				if (window.location.pathname.includes('/uk/watches/galaxy-watch/galaxy-watch4-classic-black-lte-sm-r895fzkaeua/buy/') ||
+					 	window.location.pathname.includes('/uk/watches/galaxy-watch/galaxy-watch4-pink-gold-lte-sm-r865fzdaeua/buy/')) {
+							const pricePromse = new PricePromise();
+							const financeOptions = new FinanceOptions();
+							pricePromse.addSection();
+							pricePromse.addContent(main.getPath());
+							financeOptions.addSection();
+							financeOptions.addContent(`${main.getPath()}Finance`);
+							main.addElements();
+				} else {
+					const sectionExists = setInterval(() => {
+						let accodionSection = document.querySelector('#downBoxHtml');
+						if (accodionSection) {
+								const pricePromse = new PricePromise();
+								// const tradeIn = new TradeIn();
+								const financeOptions = new FinanceOptions();
+								// const popUp = new PopUp("hello world12345");
+								// const contentItems = new Content();
+								// popUp.popUpContent('test');
+								// contentItems.popUpContent();
+								// tradeIn.addSection();
+								// tradeIn.addContent();
+								pricePromse.addSection();
+								pricePromse.addContent(main.getPath());
+								financeOptions.addSection();
+								financeOptions.addContent(`${main.getPath()}Finance`);
+								main.addElements();
+								clearInterval(sectionExists);
+						}
+					}, 200);
+				}
 
 				} else {
 					console.log('no jquery')
