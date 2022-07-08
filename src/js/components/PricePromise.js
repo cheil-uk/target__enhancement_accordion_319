@@ -1,3 +1,4 @@
+import PopUp from "../components/PopUp/Popup";
 import Accordion from "./CreateAccordion";
 import Cards from "./Cards/Cards"
 
@@ -8,7 +9,7 @@ export default class PricePromise {
     const url = window.location.pathname
 
     const div = 'div';
-    const accodionSection = document.querySelector('#downBoxHtml > div:nth-child(1)');
+    const accodionSection = url == '/uk/tablets/galaxy-tab-s8/buy/' ? document.querySelector('#downBoxHtml > div:nth-child(2)') : document.querySelector('#downBoxHtml > div:nth-child(1)');
     const showroomContainer = document.getElementById('benefit');
     const pricePromiseSection = document.createElement(div);
     pricePromiseSection.classList.add('pricePromiseSection-section')
@@ -41,36 +42,40 @@ export default class PricePromise {
     const watch = '/uk/watches/galaxy-watch/galaxy-watch4-pink-gold-lte-sm-r865fzdaeua/buy/'
 
     if (url.includes(watch) || url.includes(watchClassic)) {
-    showroomContainer.insertAdjacentElement('afterend', Accordion(pricePromiseSection))
-    anchorEle.style.display = 'none';
+        showroomContainer.insertAdjacentElement('afterend', Accordion(pricePromiseSection))
+        anchorEle.style.display = 'none';
 
-    var acc = document.getElementsByClassName("pricePromise-hubble-pd-expand__opener");
-    var i;
+        var acc = document.getElementsByClassName("pricePromise-hubble-pd-expand__opener");
+        var i;
 
-   for (i = 0; i < acc.length; i++) {
-    acc[i].addEventListener("click", () => {
-        const opener = acc[0].parentElement
-        opener.classList.add("is-opened");
-        opener.classList.toggle("is-opened-active")
-    });
-}
+    for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", () => {
+                const opener = acc[0].parentElement
+                opener.classList.add("is-opened");
+                opener.classList.toggle("is-opened-active")
+            });
+        }
 
 
     } else {
-    console.log(accodionSection)
-    accodionSection.insertAdjacentElement('afterend', pricePromiseSection);
+        console.log(accodionSection, 'pp')
+        accodionSection.insertAdjacentElement('afterend', pricePromiseSection);
     }
 
     //JS to open and close accordion
     const sectionClasses = section.classList;
-        section.onclick = () => {
-        sectionClasses.toggle('is-opened');
-        sectionClasses.toggle('is-opened-active');
-    }
+        // section.onclick = () => {
+        // sectionClasses.toggle('is-opened');
+        // sectionClasses.toggle('is-opened-active');
+    // }
+        $('.pricePromise-hubble-pd-expand__opener').click(function() {
+            sectionClasses.toggle("is-opened");
+            sectionClasses.toggle("is-opened-active");
+         })
 
     }
 
-    addContent() {
+    addContent(pageType) {
     const contentSection = document.querySelector('.pricePromise__content__section');
     const url = window.location.pathname;
 
@@ -101,7 +106,7 @@ export default class PricePromise {
             </div>
             <div class="FinanceComponent__Panels FinanceComponent__Panels--monthly">
                 <div class="FinanceComponent__Panel--grey">
-                    ${Cards('phone')}
+                    ${Cards(pageType)}
                 </div>
                 <div class="FinanceComponent__Panel--grey">
                     ${Cards('store')}
@@ -142,6 +147,12 @@ export default class PricePromise {
         </div>
     </section>
     `
+
+    document.querySelector('.FinanceComponent-selected__retailers__btn').addEventListener('click', () => {
+        new PopUp('pricePromise')
+    })
+
+
     // if (url.includes('/uk/smartphones/galaxy-s22/buy/') || url.includes('/uk/smartphones/galaxy-s22-ultra/buy/')) {
     // const learnmorepopup = document.querySelector('.adding');
     // learnmorepopup.addEventListener("click", (event) => {
@@ -156,7 +167,7 @@ export default class PricePromise {
 //     document.querySelector("#content > div > div > div.accordion > div > section > div > section > div > div > div.FinanceComponent__Panels.FinanceComponent__Panels--monthly > div:nth-child(2) > p > button").onclick = () => {
 //     document.querySelector('.popup__pricepromise__modal').style.display = 'block'
 // }
-
+        
     }
 
 }

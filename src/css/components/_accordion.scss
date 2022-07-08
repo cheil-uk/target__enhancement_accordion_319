@@ -297,3 +297,20 @@ html[lang^="th"] .hubble-see-actual-size.hubble-pd-expand .hubble-pd-expand__ope
   padding: 0vw 0vw 10.55556vw;
  }
 }
+
+.pricePromiseSection-section .hubble-pd-expand__content.s-expand__content.pricePromise__content__section,
+.financeOptions-section .hubble-pd-expand__content.s-expand__content.financeOptions__content__section,
+.hubble-pd-expand__content.s-expand__content.pricePromise__content__section,
+.hubble-pd-expand__content.s-expand__content.financeOptions__content__section,
+.hubble-pd-expand__content.s-expand__content.tradeIn__content__section {
+  padding-bottom: 45px;
+  width: 100%;
+  margin: auto;
+
+  .FinanceComponent__Panel--grey {
+    @media (min-width: 768px) {
+      padding: 5% 2%;
+    }
+  }
+}
+

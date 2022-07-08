@@ -45,18 +45,18 @@ cheillondon.targetBoilerplate = (function () {
 					console.log('doEverythingTimeout - jQuery loaded');
 					main.appendNewStyle();
 					const pricePromse = new PricePromise();
-					const tradeIn = new TradeIn();
+					// const tradeIn = new TradeIn();
 					const financeOptions = new FinanceOptions();
-					const popUp = new PopUp();
-					const contentItems = new Content();
-					popUp.popUpContent();
-					contentItems.popUpContent();
+					// const popUp = new PopUp("hello world12345");
+					// const contentItems = new Content();
+					// popUp.popUpContent('test');
+					// contentItems.popUpContent();
+					// tradeIn.addSection();
+					// tradeIn.addContent();
 					pricePromse.addSection();
-					pricePromse.addContent();
-					tradeIn.addSection();
-					tradeIn.addContent();
+					pricePromse.addContent(main.getPath());
 					financeOptions.addSection();
-					financeOptions.addContent();
+					financeOptions.addContent(`${main.getPath()}Finance`);
 					main.addElements();
 
 				} else {
@@ -96,21 +96,33 @@ cheillondon.targetBoilerplate = (function () {
 
 		},
 
+		getPath: () => {
+			const url = window.location.pathname
+
+			switch (url) {
+				case '/uk/watches/galaxy-watch/galaxy-watch4-classic-black-lte-sm-r895fzkaeua/buy/':
+					return 'watch'
+				case '/uk/watches/galaxy-watch/galaxy-watch4-pink-gold-lte-sm-r865fzdaeua/buy/':
+					return 'watch'
+				case '/uk/computers/galaxy-book/galaxy-book2-pro/buy/':
+					return 'davd'
+				case '/uk/tablets/galaxy-tab-s8/buy/':
+					return 'tab'
+			}
+		},
 
 		// ==========================================================================
 		// When page is already loaded we need to add the new elements
 		// ==========================================================================
 		addElements: function () {
 
-			const selectedButtons = document.querySelectorAll('.selected__retailers__btn');
-			selectedButtons.forEach((selectBtns) => {
-				selectBtns.onclick = () => {
-					document.querySelector('.popup__pricepromise__modal').style.display = 'block'
-				}
-			})
-
-
-
+			// const selectedButtons = document.querySelectorAll('.selected__retailers__btn');
+			// selectedButtons.forEach((selectBtns) => {
+			// 	selectBtns.onclick = () => {
+			// 		// document.querySelector('.popup__pricepromise__modal').style.display = 'block'
+			// 		new PopUp("hello world12345")
+			// 	}
+			// })
 		},
 
 

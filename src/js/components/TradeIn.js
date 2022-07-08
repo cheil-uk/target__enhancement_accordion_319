@@ -5,7 +5,7 @@ export default class TradeIn {
       //just adds in section on the buy pages for the s22
       const url = window.location.pathname;
       const div = "div";
-      const accodionSection = document.querySelector("#downBoxHtml > div:nth-child(1)");
+      const accodionSection = url == '/uk/tablets/galaxy-tab-s8/buy/' ? document.querySelector('#downBoxHtml > div:nth-child(2)') : document.querySelector('#downBoxHtml > div:nth-child(1)');
       const showroomContainer = document.querySelector("#content > div > div > div.accordion > div > section");
       const tradeInSection = document.createElement(div);
       tradeInSection.classList.add("tradeIn-section");

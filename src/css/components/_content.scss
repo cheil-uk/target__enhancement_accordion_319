@@ -1,5 +1,5 @@
-.popup__pricepromise__modal {
- display: none;
+.popup__modal {
+ display: block;
  top: 0;
  left: 0;
  bottom: 0;
@@ -9,9 +9,9 @@
  z-index: 9999;
  background-color: #000000c2;
 
- &.popup__pricepromise__modal--show {
-  display: flex;
- }
+//  &.popup__modal--show {
+//   display: flex;
+//  }
 
  h1,
  h2,

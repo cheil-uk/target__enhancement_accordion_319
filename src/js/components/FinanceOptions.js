@@ -1,5 +1,7 @@
+import { round } from "lodash";
 import Api from "../api/Api";
 import Cards from "./Cards/Cards"
+import PopUp from "../components/PopUp/Popup";
 
 export default class FinanceOptions {
     addSection() {
@@ -8,7 +10,7 @@ export default class FinanceOptions {
      const url = window.location.pathname;
 
      const div = "div";
-     const accodionSection = document.querySelector("#downBoxHtml > div:nth-child(1)");
+     const accodionSection = url == '/uk/tablets/galaxy-tab-s8/buy/' ? document.querySelector('#downBoxHtml > div:nth-child(3)') : document.querySelector('#downBoxHtml > div:nth-child(2)');
      // document.querySelector("#content > div > div > div.accordion > div > section")
      const showroomContainer = document.querySelector("#content > div > div > div.accordion > div > section");
      const financeOptionsSection = document.createElement(div);
@@ -59,20 +61,34 @@ export default class FinanceOptions {
          accodionSection.insertAdjacentElement("afterend", financeOptionsSection);
          //JS to open and close accordion
          const sectionClasses = section.classList;
-         section.onclick = () => {
-             sectionClasses.toggle("is-opened");
-             sectionClasses.toggle("is-opened-active");
-         };
+
+        $('.financeOptions-hubble-pd-expand__opener').click(function() {
+        sectionClasses.toggle("is-opened");
+        sectionClasses.toggle("is-opened-active");
+        })
      }
 
     }
 
-    addContent() {
+    addContent(pageType) {
 
     // console.log(Api('sm-r895fzkaeua'))
     const contentSection = document.querySelector('.financeOptions__content__section');
     const price  = (digitalData.page.pageInfo.pageTrack === "flagship pdp") ? BC_MODEL.allPrice :  digitalData.product.list_price
-    const monthlyPrice = price/36
+    let financePrice = 0;
+    const monthlyPrice = Math.ceil(price/36 * 100) / 100
+
+    if (pageType == 'watchFinance') {
+        const priceNow = document.querySelector('.cost-box__price-now').innerText
+        let splitPriceNow = parseFloat(priceNow.substring(priceNow.indexOf('£') + 1, priceNow.lastIndexOf('/')))
+
+        if (monthlyPrice == splitPriceNow) {
+            financePrice = monthlyPrice;
+        } else {
+            financePrice = splitPriceNow;
+        };
+    }
+
 
     const tagging = (action, type) => {
 
@@ -89,7 +105,6 @@ export default class FinanceOptions {
     return Object.entries(tags).map(([k, v]) => `${k}="${v}"`).join(' ');
     }
 
-
     contentSection.innerHTML = `
     <section class="finance_section">
         <div class="finance_section_inner">
@@ -101,13 +116,13 @@ export default class FinanceOptions {
             Spread the cost of your device over 12 to 36 months with rates starting at 0% APR.*</p>
            <button class="modal-opening Button Button--center" ${tagging('319:Finance module enhancement accordion', 'pay as little as')}">
             <p
-             class="Paragraph Paragraph--medium Paragraph--normal Paragraph--center Paragraph--color-blue Paragraph--primary Paragraph--none">
-             Pay as little as ${monthlyPrice.toPrecision(4)} a month* &gt;</p>
+             class="FinanceComponent_open-pop-up Paragraph Paragraph--medium Paragraph--normal Paragraph--center Paragraph--color-blue Paragraph--primary Paragraph--none">
+             Pay as little as £${financePrice == 0 ? monthlyPrice.toFixed(2) : financePrice.toFixed(2)} a month* &gt;</p>
            </button>
           </div>
           <div class="FinanceComponent__Panels FinanceComponent__Panels--monthly">
            <div class="FinanceComponent__Panel--grey">
-             ${Cards('phone')}
+             ${Cards(pageType)}
            </div>
            <div class="FinanceComponent__Panel--grey">
             ${Cards('checkout')}
@@ -117,7 +132,7 @@ export default class FinanceOptions {
            </div>
           </div>
           <div class="FinanceComponent__TradeIn__Bottom">
-           <button class="Button__black Button Button--center"${tagging('319:Finance module enhancement accordion', 'see finance options')}>
+           <button class="FinanceComponent_open-pop-up Button__black Button Button--center" ${tagging('319:Finance module enhancement accordion', 'see finance options')}>
             See finance options
            </button>
            <div class="FinanceComponent__TradeIn__Bottom__Terms">
@@ -135,6 +150,23 @@ export default class FinanceOptions {
         </div>
     </section>
     `
+
+
+    // trigger finance popup
+    // $('.FinanceComponent_open-pop-up').on('click', function() {
+    //     $('.hubble-product__offer-emi a').click();
+    // })
+
+    // document.querySelector('.FinanceComponent-selected__retailers__btn').addEventListener('click', () => {
+    //     new PopUp('pricePromise')
+    // })
+
+        const selectedButtons = document.querySelectorAll('.FinanceComponent_open-pop-up');
+        selectedButtons.forEach((selectBtns) => {
+            selectBtns.onclick = () => {
+                new PopUp('finance')
+            }
+        })
 
     }
 
