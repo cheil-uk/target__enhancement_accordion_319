@@ -105,6 +105,14 @@ export default class FinanceOptions {
     return Object.entries(tags).map(([k, v]) => `${k}="${v}"`).join(' ');
     }
 
+    let trackAAEvent = (data) => {
+        s.linkTrackVars = "eVar25,events";
+        s.linkTrackEvents = "event25";
+        s.events = "event25";
+        s.eVar25 = data;
+        s.tl(this, 'o');
+    }
+
     contentSection.innerHTML = `
     <section class="finance_section">
         <div class="finance_section_inner">
@@ -114,7 +122,7 @@ export default class FinanceOptions {
            <p
             class="Paragraph Paragraph--medium Paragraph--normal Paragraph--center Paragraph--color-black Paragraph--primary Paragraph--none">
             Spread the cost of your device over 12 to 36 months with rates starting at 0% APR.*</p>
-           <button class="modal-opening Button Button--center" ${tagging('319:Finance module enhancement accordion', 'pay as little as')}">
+           <button class="modal-opening Button Button--center">
             <p
              class="FinanceComponent_open-pop-up Paragraph Paragraph--medium Paragraph--normal Paragraph--center Paragraph--color-blue Paragraph--primary Paragraph--none">
              Pay as little as £${financePrice == 0 ? monthlyPrice.toFixed(2) : financePrice.toFixed(2)} a month* &gt;</p>
@@ -132,7 +140,7 @@ export default class FinanceOptions {
            </div>
           </div>
           <div class="FinanceComponent__TradeIn__Bottom">
-           <button class="FinanceComponent_open-pop-up Button__black Button Button--center" ${tagging('319:Finance module enhancement accordion', 'see finance options')}>
+           <button class="FinanceComponent_open-pop-up Button__black Button Button--center">
             See finance options
            </button>
            <div class="FinanceComponent__TradeIn__Bottom__Terms">
@@ -156,6 +164,7 @@ export default class FinanceOptions {
     if (pageType == 'watchFinance') {
         if ($('.pd-offer__content--calculate .pd-offer__cta a')) {
             $('.FinanceComponent_open-pop-up').on('click', function() {
+                trackAAEvent('319:Finance module enhancement accordion:finance-pop-up')
                 $('.pd-offer__content--calculate .pd-offer__cta a').click();
             })
         } else {
@@ -164,6 +173,7 @@ export default class FinanceOptions {
     } else {
         if ($('.hubble-product__offer-emi a')) {
             $('.FinanceComponent_open-pop-up').on('click', function() {
+                trackAAEvent('319:Finance module enhancement accordion:finance-pop-up')
                 $('.hubble-product__offer-emi a').click();
             })
         } else {

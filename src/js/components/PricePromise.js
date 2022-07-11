@@ -93,6 +93,14 @@ export default class PricePromise {
     return Object.entries(tags).map(([k, v]) => `${k}="${v}"`).join(' ');
     }
 
+    let trackAAEvent = (data) => {
+        s.linkTrackVars = "eVar25,events";
+        s.linkTrackEvents = "event25";
+        s.events = "event25";
+        s.eVar25 = data;
+        s.tl(this, 'o');
+    }
+
     contentSection.innerHTML = `
     <section class="finance_section">
         <div class="finance_section_inner">
@@ -125,9 +133,9 @@ export default class PricePromise {
                 </p>
                 <br />
                 <div class="Button__Link_Wrap Button__Link_Wrap--null">
-                    <a ${tagging('319:Finance module enhancement accordion', 'claimnow')} class="Button__black Button Button--center Button Button--null" href="https://2021.samsungpromotions.claims/pricepromise/en-GB">Claim now</a>
+                    <a ${tagging('319:Finance module enhancement accordion', 'claimnow')} class="Accordion-Price-promise Button__black Button Button--center Button Button--null" href="https://2021.samsungpromotions.claims/pricepromise/en-GB">Claim now</a>
                 </div>
-                <a class="learnmore" href="https://2021.samsungpromotions.claims/pricepromise/en-GB/qualifying"
+                <a class="learnmore Accordion-Price-promise-learnmore" href="https://2021.samsungpromotions.claims/pricepromise/en-GB/qualifying"
                     ${tagging('319:Finance module enhancement accordion', 'learnmore')}>
                     Learn More
                 </a>
@@ -152,7 +160,13 @@ export default class PricePromise {
         new PopUp('pricePromise')
     })
 
-
+    $('.Accordion-Price-promise').on('click', function() {
+        trackAAEvent('319:Finance module enhancement accordion:Price promise')
+    })
+    
+    $('.Accordion-Price-promise-learnmore').on('click', function() {
+        trackAAEvent('319:Finance module enhancement accordion:Price promise learn more')
+    })
     // if (url.includes('/uk/smartphones/galaxy-s22/buy/') || url.includes('/uk/smartphones/galaxy-s22-ultra/buy/')) {
     // const learnmorepopup = document.querySelector('.adding');
     // learnmorepopup.addEventListener("click", (event) => {
