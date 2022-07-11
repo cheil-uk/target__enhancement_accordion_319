@@ -127,7 +127,7 @@ export default class PricePromise {
                 <div class="Button__Link_Wrap Button__Link_Wrap--null">
                     <a ${tagging('319:Finance module enhancement accordion', 'claimnow')} class="Button__black Button Button--center Button Button--null" href="https://2021.samsungpromotions.claims/pricepromise/en-GB">Claim now</a>
                 </div>
-                <a class="learnmore" href="https://2021.samsungpromotions.claims/pricepromise/en-GB/qualifying'"
+                <a class="learnmore" href="https://2021.samsungpromotions.claims/pricepromise/en-GB/qualifying"
                     ${tagging('319:Finance module enhancement accordion', 'learnmore')}>
                     Learn More
                 </a>

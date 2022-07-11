@@ -125,7 +125,7 @@ export default class FinanceOptions {
              ${Cards(pageType)}
            </div>
            <div class="FinanceComponent__Panel--grey">
-            ${Cards('checkout')}
+            ${Cards(pageType+'Checkout')}
            </div>
            <div class="FinanceComponent__Panel--grey">
            ${Cards('payment')}
