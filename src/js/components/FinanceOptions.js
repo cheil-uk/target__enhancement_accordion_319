@@ -78,23 +78,14 @@ export default class FinanceOptions {
     let financePrice = 0;
     const monthlyPrice = Math.ceil(price/36 * 100) / 100
 
-    console.log(contentSection, 'contentSection')
-    console.log(price, 'price')
-
     if (pageType == 'watchFinance') {
         const priceNow = document.querySelector('.cost-box__price-now').innerText
         let splitPriceNow = priceNow.includes('/') ? parseFloat(priceNow.substring(priceNow.indexOf('£') + 1, priceNow.lastIndexOf('/'))) : parseFloat(priceNow.substring(1))
 
-        console.log(splitPriceNow, 'splitPriceNow')
-
         if (monthlyPrice == splitPriceNow) {
             financePrice = monthlyPrice;
-            console.log('hello')
-            console.log(monthlyPrice, 'monthlyPrice')
         } else {
             financePrice = splitPriceNow;
-            console.log(splitPriceNow, 'splitPriceNow')
-            console.log('hello world')
         };
     }
 
