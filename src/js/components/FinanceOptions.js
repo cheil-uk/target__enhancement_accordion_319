@@ -41,18 +41,25 @@ export default class FinanceOptions {
      const watchClassic = "/uk/watches/galaxy-watch/galaxy-watch4-classic-black-lte-sm-r895fzkaeua/buy/";
      const watch = "/uk/watches/galaxy-watch/galaxy-watch4-pink-gold-lte-sm-r865fzdaeua/buy/";
 
+     let trackAAEvent = (data) => {
+        s.linkTrackVars = "eVar25,events";
+        s.linkTrackEvents = "event25";
+        s.events = "event25";
+        s.eVar25 = data;
+        s.tl(this, 'o');
+    }
+
      if (url.includes(watch) || url.includes(watchClassic)) {
          showroomContainer.insertAdjacentElement("afterend", section);
 
          var acc = document.getElementsByClassName("financeOptions-hubble-pd-expand__opener");
          var i;
-
          for (i = 0; i < acc.length; i++) {
              acc[i].addEventListener("click", () => {
-
                  const opener = acc[0].parentElement;
                  opener.classList.add("is-opened");
                  opener.classList.toggle("is-opened-active");
+                 trackAAEvent('319:Finance module enhancement accordion:finance toggle accodion')
              });
          }
      } else {
@@ -63,8 +70,10 @@ export default class FinanceOptions {
          const sectionClasses = section.classList;
 
         $('.financeOptions-hubble-pd-expand__opener').click(function() {
-        sectionClasses.toggle("is-opened");
-        sectionClasses.toggle("is-opened-active");
+            sectionClasses.toggle("is-opened");
+            sectionClasses.toggle("is-opened-active");
+
+            trackAAEvent('319:Finance module enhancement accordion:finance toggle accodion')
         })
      }
 

@@ -61,7 +61,6 @@ cheillondon.targetBoilerplate = (function () {
 								const pricePromse = new PricePromise();
 								// const tradeIn = new TradeIn();
 								const financeOptions = new FinanceOptions();
-								// const popUp = new PopUp("hello world12345");
 								// const contentItems = new Content();
 								// popUp.popUpContent('test');
 								// contentItems.popUpContent();

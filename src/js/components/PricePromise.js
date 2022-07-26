@@ -41,6 +41,14 @@ export default class PricePromise {
     const watchClassic = '/uk/watches/galaxy-watch/galaxy-watch4-classic-black-lte-sm-r895fzkaeua/buy/'
     const watch = '/uk/watches/galaxy-watch/galaxy-watch4-pink-gold-lte-sm-r865fzdaeua/buy/'
 
+    let trackAAEvent = (data) => {
+        s.linkTrackVars = "eVar25,events";
+        s.linkTrackEvents = "event25";
+        s.events = "event25";
+        s.eVar25 = data;
+        s.tl(this, 'o');
+    }
+
     if (url.includes(watch) || url.includes(watchClassic)) {
         showroomContainer.insertAdjacentElement('afterend', Accordion(pricePromiseSection))
         anchorEle.style.display = 'none';
@@ -70,6 +78,7 @@ export default class PricePromise {
         $('.pricePromise-hubble-pd-expand__opener').click(function() {
             sectionClasses.toggle("is-opened");
             sectionClasses.toggle("is-opened-active");
+            trackAAEvent('319:Finance module enhancement accordion:Price promise toggle accordion')
          })
 
     }
